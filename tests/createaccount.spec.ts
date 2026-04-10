@@ -3,17 +3,15 @@ import { Config } from '@playwright/test'
 import { LoginPage } from '../pages/LoginPage' 
 import { LandingPage } from '../pages/LandingPage' 
 import { HomePage } from '../pages/HomePage'
-import { CreateLeadPage } from '../pages/CreateLeadPage'
+import { CreateAccountPage } from '../pages/CreateAccountPage'
 import { CONFIG } from '../utils/config'
 import { getUniqueName } from '../utils/datautils'
 
+test('Create Account' , async({page})=>{
 
-test('Create Lead Test', async({page})=>{
-
-    const leadCompanyName = getUniqueName("Matrix");
-    const leadFirstName = getUniqueName("srini");
-    const leadLastName = getUniqueName("vasan");
-
+    const companyAccountName = getUniqueName("Helix_");
+    
+    
     // Navigate
     await page.goto(CONFIG.baseUrl);
 
@@ -32,15 +30,17 @@ test('Create Lead Test', async({page})=>{
     const homepage = new HomePage(page);
     await expect(homepage.createAccountLink).toBeVisible();
 
-    await homepage.clickCreateLead();
+    await homepage.clickCreateAccount();
 
     // Verify create acount page sidplayed
-    const createlead = new CreateLeadPage(page)
-    await expect(createlead.companyNameInput).toBeVisible();
+    const createaccount = new CreateAccountPage(page)
+    await expect(createaccount.accounNameInput).toBeVisible();
 
     //create lead
-    await createlead.createLead(leadCompanyName, leadFirstName, leadLastName);
+    await createaccount.createAccount(companyAccountName);
 
     //verify lead is created
-    await expect(createlead.deleteLeadButton).toBeVisible();
-}) 
+    await expect(createaccount.deactivateButton).toBeVisible();
+
+})
+

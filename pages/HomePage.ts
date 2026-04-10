@@ -9,7 +9,7 @@ export class HomePage extends BasePage{
     constructor(page:Page){
         super(page);
         this.createLeadLink = page.getByRole('link', { name: 'Create Lead' });
-        this.createAccountLink = page.getByRole('link', { name: 'Create Account' });
+        this.createAccountLink = page.locator("//a[text()='Create Account']");
         this.createContactLink = page.getByRole('link', { name: 'Create Contact' });
     }
 
