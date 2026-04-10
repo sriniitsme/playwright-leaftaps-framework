@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test'
-import { Config } from '@playwright/test' 
-import { LoginPage } from '../pages/LoginPage' 
-import { LandingPage } from '../pages/LandingPage' 
 import { HomePage } from '../pages/HomePage'
 import { CreateLeadPage } from '../pages/CreateLeadPage'
-import { CONFIG } from '../utils/config'
 import { getUniqueName } from '../utils/datautils'
+import { loginandNavigate } from '../utils/common'
 
+test.beforeEach(async ({ page }) => {
+  await loginandNavigate(page);
+});
 
 test('Create Lead Test', async({page})=>{
 
@@ -14,31 +14,12 @@ test('Create Lead Test', async({page})=>{
     const leadFirstName = getUniqueName("srini");
     const leadLastName = getUniqueName("vasan");
 
-    // Navigate
-    await page.goto(CONFIG.baseUrl);
-
-    // Login
-    await page.waitForLoadState();
-    const loginpage = new LoginPage(page);
-    await loginpage.login(CONFIG.username, CONFIG.password);
-
-    // Verify login
-    const landingpage = new LandingPage(page);
-    await expect(landingpage.crmsfaLink).toBeVisible();
-
-    await landingpage.clickCrmSafe();
-
     // verify homepage displayed
     const homepage = new HomePage(page);
-    await expect(homepage.createAccountLink).toBeVisible();
-
     await homepage.clickCreateLead();
 
     // Verify create acount page sidplayed
     const createlead = new CreateLeadPage(page)
-    await expect(createlead.companyNameInput).toBeVisible();
-
-    //create lead
     await createlead.createLead(leadCompanyName, leadFirstName, leadLastName);
 
     //verify lead is created
