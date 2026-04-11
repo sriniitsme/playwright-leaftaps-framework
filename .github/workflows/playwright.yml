@@ -44,6 +44,12 @@ jobs:
         with:
           name: smoke-report-${{ matrix.env }}
           path: playwright-report/
+      - name: allure-results-smoke-${{ matrix.env }}
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results-${{ matrix.env }}
+          path: allure-results/
 
   regression:
     if: github.event_name == 'schedule'
@@ -78,3 +84,9 @@ jobs:
         with:
           name: regression-report-${{ matrix.env }}
           path: playwright-report/
+      - name: allure-results-regression-${{ matrix.env }}
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results-${{ matrix.env }}
+          path: allure-results/
