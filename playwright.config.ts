@@ -4,8 +4,6 @@ dotenv.config({
   path: `.env.${process.env.TEST_ENV || 'qa'}`
 });
 
-console.log("ENV:", process.env.TEST_ENV);
-console.log("BASE_URL:", process.env.BASE_URL);
 
 export default defineConfig({
   retries: 2,
