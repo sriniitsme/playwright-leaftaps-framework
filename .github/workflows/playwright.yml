@@ -30,14 +30,13 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npx playwright test --reporter=html
+      - name: Run Smoke Tests
+        run: npx playwright test -g @smoke
         env:
           CI: true
           APP_USERNAME: ${{ secrets.SECRET1_LEAFTAP_USERNAME }}
           APP_PASSWORD: ${{ secrets.SECRET2_LEAFTAP_PASSWORD }}
           BASE_URL: ${{ secrets.SECRET3_LEAFTAP_BASE_URL }}
-
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:

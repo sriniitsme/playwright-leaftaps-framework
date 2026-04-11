@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/testFixtures'
 import { CreateAccountPage } from '../pages/CreateAccountPage'
 import { getUniqueName } from '../utils/datautils'
 
-test('Create Account - verify account creation success', async ({ page, homePage }) => {
+test('@regression Create Account ', async ({ page, homePage }) => {
 
     const companyAccountName = getUniqueName("Helix_");
         

@@ -2,7 +2,7 @@ import { test, expect } from '../fixtures/testFixtures'
 import { CreateLeadPage } from '../pages/CreateLeadPage'
 import { getUniqueName } from '../utils/datautils'
 
-test('Create Lead Test', async ({ page, homePage }) => {
+test('@smoke @regression Create Lead Test', async ({ page, homePage }) => {
 
     const leadCompanyName = getUniqueName("Matrix");
     const leadFirstName = getUniqueName("srini");
