@@ -4,7 +4,9 @@ export default defineConfig({
   fullyParallel: true,
   workers: process.env.CI ? 2 : undefined,
 
-  reporter: [['html', { open: 'never' }]],
+  reporter: [
+  ['html', { open: 'never', outputFolder: 'playwright-report' }]
+],
 
   use: {
     baseURL: process.env.BASE_URL || 'https://leaftaps.com/opentaps/control/login',
