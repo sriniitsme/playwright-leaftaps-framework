@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","9501","@regression Create Account","","2026-04-11","passed","2026-04-11","","tests\createaccount.spec.ts","",""
+"","10217","@smoke @regression Create Lead Test","","2026-04-11","passed","2026-04-11","","tests\createlead.spec.ts","",""

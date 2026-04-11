@@ -8,13 +8,16 @@ on:
     branches: [ main, master ]
 
   schedule:
-    - cron: '0 2 * * *'   # Nightly
+    - cron: '0 2 * * *'
 
 jobs:
   smoke:
     if: github.event_name != 'schedule'
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        env: [qa, dev]
 
     steps:
       - uses: actions/checkout@v4
@@ -23,38 +26,32 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install dependencies
         run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Smoke Tests
+      - name: Run Smoke (${{ matrix.env }})
         run: npx playwright test -g @smoke
         env:
           CI: true
-          APP_USERNAME: ${{ secrets.SECRET1_LEAFTAP_USERNAME }}
-          APP_PASSWORD: ${{ secrets.SECRET2_LEAFTAP_PASSWORD }}
-          BASE_URL: ${{ secrets.SECRET3_LEAFTAP_BASE_URL }}
+          TEST_ENV: ${{ matrix.env }}
 
-      - name: Upload Smoke Report
+      - name: Upload Report (${{ matrix.env }})
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: smoke-report-${{ matrix.env }}
           path: playwright-report/
-          retention-days: 30
 
   regression:
     if: github.event_name == 'schedule'
-    timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        env: [qa, dev]
 
     steps:
       - uses: actions/checkout@v4
@@ -63,30 +60,21 @@ jobs:
         with:
           node-version: lts/*
 
-      - name: Cache node modules
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-
       - name: Install dependencies
         run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Regression Tests
+      - name: Run Regression (${{ matrix.env }})
         run: npx playwright test -g @regression
         env:
           CI: true
-          APP_USERNAME: ${{ secrets.SECRET1_LEAFTAP_USERNAME }}
-          APP_PASSWORD: ${{ secrets.SECRET2_LEAFTAP_PASSWORD }}
-          BASE_URL: ${{ secrets.SECRET3_LEAFTAP_BASE_URL }}
+          TEST_ENV: ${{ matrix.env }}
 
-      - name: Upload Regression Report
+      - name: Upload Report (${{ matrix.env }})
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report
+          name: regression-report-${{ matrix.env }}
           path: playwright-report/
-          retention-days: 30
