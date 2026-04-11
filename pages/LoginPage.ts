@@ -20,19 +20,18 @@ export class LoginPage extends BasePage {
 
     async login(username: string, password: string) {
 
-        console.log(username, password);
-        
-        // ✅ Ensure we are on login page
-        await this.usernameInput.waitFor({ state: 'visible' });
+        console.log("USERNAME LENGTH:", username.length);
+        console.log("PASSWORD LENGTH:", password.length);
 
-        console.log('Entering username');
+        console.log("USERNAME STARTS WITH:", username.substring(0, 4));
+
         await this.usernameInput.fill(username);
-
-        console.log('Entering password');
         await this.passwordInput.fill(password);
 
-        console.log('Clicking login');
-        await this.loginButton.click();
+        await Promise.all([
+            this.page.waitForNavigation({ waitUntil: 'load' }),
+            this.loginButton.click()
+        ]);
 
     }
 
