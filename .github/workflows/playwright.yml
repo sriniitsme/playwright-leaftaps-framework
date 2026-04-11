@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: lts/*
 
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install dependencies
         run: npm ci
 
@@ -25,8 +31,9 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npx playwright test --reporter=line
         env:
+          CI: true
           APP_USERNAME: ${{ secrets.SECRET1_LEAFTAP_USERNAME }}
           APP_PASSWORD: ${{ secrets.SECRET2_LEAFTAP_PASSWORD }}
           BASE_URL: ${{ secrets.SECRET3_LEAFTAP_BASE_URL }}
