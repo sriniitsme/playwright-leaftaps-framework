@@ -12,7 +12,7 @@ export class LandingPage extends BasePage{
         this.logoutButton = page.getByRole('button');
     }
 
-    async clickCrmSafe(){
+    async clickCrmSfa(){
         await this.crmsfaLink.click();
     }
 

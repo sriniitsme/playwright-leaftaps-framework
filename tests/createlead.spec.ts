@@ -1,27 +1,20 @@
-import { test, expect } from '@playwright/test'
-import { HomePage } from '../pages/HomePage'
+import { test, expect } from '../fixtures/testFixtures'
 import { CreateLeadPage } from '../pages/CreateLeadPage'
 import { getUniqueName } from '../utils/datautils'
-import { loginandNavigate } from '../utils/common'
 
-test.beforeEach(async ({ page }) => {
-  await loginandNavigate(page);
-});
-
-test('Create Lead Test', async({page})=>{
+test('Create Lead Test', async ({ page, homePage }) => {
 
     const leadCompanyName = getUniqueName("Matrix");
     const leadFirstName = getUniqueName("srini");
     const leadLastName = getUniqueName("vasan");
 
-    // verify homepage displayed
-    const homepage = new HomePage(page);
-    await homepage.clickCreateLead();
+    // Navigate to Create Lead page
+    await homePage.clickCreateLead();
 
-    // Verify create acount page sidplayed
-    const createlead = new CreateLeadPage(page)
-    await createlead.createLead(leadCompanyName, leadFirstName, leadLastName);
+    // Create Lead
+    const createLeadPage = new CreateLeadPage(page);
+    await createLeadPage.createLead(leadCompanyName, leadFirstName, leadLastName);
 
-    //verify lead is created
-    await expect(createlead.deleteLeadButton).toBeVisible();
-}) 
+    // Verify lead is created
+    await expect(createLeadPage.deleteLeadButton).toBeVisible();
+});

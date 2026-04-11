@@ -1,28 +1,18 @@
-import { test, expect } from '@playwright/test'
-import { LoginPage } from '../pages/LoginPage' 
-import { LandingPage } from '../pages/LandingPage' 
-import { HomePage } from '../pages/HomePage'
+import { test, expect } from '../fixtures/testFixtures'
 import { CreateAccountPage } from '../pages/CreateAccountPage'
 import { getUniqueName } from '../utils/datautils'
-import { loginandNavigate } from '../utils/common' 
-import { CONFIG } from '../utils/config'
 
-test.beforeEach(async ({ page }) => {
-  await loginandNavigate(page);
-});
-
-test('Create Account' , async({page})=>{
+test('Create Account - verify account creation success', async ({ page, homePage }) => {
 
     const companyAccountName = getUniqueName("Helix_");
         
-    // verify homepage displayed
-    const homepage = new HomePage(page);
-    await homepage.clickCreateAccount();
+    // Navigate to Create Account page
+    await homePage.clickCreateAccount();
 
-    // Verify create acount page sidplayed
-    const createaccount = new CreateAccountPage(page)
-    await createaccount.createAccount(companyAccountName);
-    await expect(createaccount.deactivateButton).toBeVisible();
+    // Create account
+    const createAccountPage = new CreateAccountPage(page);
+    await createAccountPage.createAccount(companyAccountName);
 
-})
-
+    // Verify account is created
+    await expect(createAccountPage.deactivateButton).toBeVisible();
+});
