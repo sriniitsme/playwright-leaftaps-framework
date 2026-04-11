@@ -31,7 +31,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --reporter=line
+        run: npx playwright test --reporter=html
         env:
           CI: true
           APP_USERNAME: ${{ secrets.SECRET1_LEAFTAP_USERNAME }}

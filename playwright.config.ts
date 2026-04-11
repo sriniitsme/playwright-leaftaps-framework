@@ -5,8 +5,9 @@ export default defineConfig({
   workers: process.env.CI ? 2 : undefined,
 
   reporter: [
-  ['html', { open: 'never', outputFolder: 'playwright-report' }]
-],
+    ['line'],
+    ['html', { open: 'never', outputFolder: 'playwright-report' }]
+  ],
 
   use: {
     baseURL: process.env.BASE_URL || 'https://leaftaps.com/opentaps/control/login',
