@@ -13,6 +13,7 @@ export class LandingPage extends BasePage{
     }
 
     async clickCrmSfa(){
+        await this.crmsfaLink.waitFor({ state: 'visible' });
         await this.crmsfaLink.click();
     }
 
