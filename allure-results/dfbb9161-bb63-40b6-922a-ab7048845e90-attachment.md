@@ -1,0 +1,57 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: tests\createcontact.spec.ts >> @smoke Create Contact 
+- Location: tests\createcontact.spec.ts:5:5
+
+# Error details
+
+```
+Error: locator.waitFor: Target page, context or browser has been closed
+```
+
+# Test source
+
+```ts
+  1  | import { Page, Locator } from '@playwright/test';
+  2  | import { BasePage } from './BasePage';
+  3  | 
+  4  | export class CreateContactPage extends BasePage {
+  5  | 
+  6  |     readonly firstNameInput: Locator;
+  7  |     readonly lastNameInput: Locator;
+  8  |     readonly descriptionInput: Locator;
+  9  |     readonly createContactButton: Locator;
+  10 |     readonly viewContactLabel: Locator;
+  11 |     readonly deactivateAccountButton : Locator;
+  12 | 
+  13 |     constructor(page: Page) {
+  14 | 
+  15 |         super(page)
+  16 |         this.firstNameInput = page.locator("#firstNameField");
+  17 |         this.lastNameInput = page.locator("#lastNameField");
+  18 |         this.descriptionInput = page.locator("#createContactForm_description");
+  19 |         this.createContactButton = page.getByRole('button', { name: 'Create Contact' });
+  20 |         this.viewContactLabel = page.locator("//div[text()='View Contact']");
+  21 |         this.deactivateAccountButton = page.locator("//a[text()='Deactivate Contact']");
+  22 |     }
+  23 | 
+  24 |     async craeteContact(firstName: string, lastName: string, description: string) {
+  25 | 
+  26 |         await this.firstNameInput.fill(firstName);
+  27 |         await this.lastNameInput.fill(lastName);
+  28 |         await this.descriptionInput.fill(description);
+  29 |         await this.createContactButton.scrollIntoViewIfNeeded();
+  30 |         await this.createContactButton.click();
+> 31 |         await this.deactivateAccountButton.waitFor({ state: 'visible' });
+     |                                            ^ Error: locator.waitFor: Target page, context or browser has been closed
+  32 |     }
+  33 | 
+  34 | }
+  35 | 
+```

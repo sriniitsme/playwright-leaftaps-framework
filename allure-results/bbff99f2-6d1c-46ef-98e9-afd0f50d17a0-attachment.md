@@ -1,0 +1,963 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: tests\createcontact.spec.ts >> @smoke Create Contact 
+- Location: tests\createcontact.spec.ts:5:5
+
+# Error details
+
+```
+Error: expect(page).toHaveURL(expected) failed
+
+Expected: "https://leaftaps.com/viewContact/"
+Received: "https://leaftaps.com/crmsfa/control/viewContact?partyId=10616"
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveURL" with timeout 5000ms
+    4 × unexpected value "https://leaftaps.com/crmsfa/control/createContactForm;jsessionid=7DFA489983FFE8298ECC5173F706BCF5.jvm1"
+    - waiting for" https://leaftaps.com/crmsfa/control/createContact" navigation to finish...
+    - navigated to "https://leaftaps.com/crmsfa/control/viewContact?partyId=10616"
+    2 × unexpected value "https://leaftaps.com/crmsfa/control/viewContact?partyId=10616"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - menubar [ref=e9]:
+      - textbox [ref=e10]
+      - table [ref=e11]:
+        - rowgroup [ref=e12]:
+          - row "CRM/SFA Docs Wiki eCommerce" [ref=e13]:
+            - menuitem "CRM/SFA" [ref=e14]
+            - menuitem "Docs Wiki" [ref=e15]:
+              - link "Docs Wiki" [ref=e16] [cursor=pointer]:
+                - /url: http://www.opentaps.org/docs/?externalLoginKey=EL87814391576
+            - menuitem "eCommerce" [ref=e17]:
+              - link "eCommerce" [ref=e18] [cursor=pointer]:
+                - /url: /ecommerce/control/main?externalLoginKey=EL87814391576
+    - link "opentaps CRM" [ref=e20] [cursor=pointer]:
+      - /url: /opentaps/
+      - img "opentaps CRM" [ref=e21]
+  - generic [ref=e22]:
+    - generic [ref=e23]:
+      - text: DemoSalesManager |
+      - link "Profile" [ref=e24] [cursor=pointer]:
+        - /url: /crmsfa/control/myProfile
+      - text: "|"
+      - link "Shortcuts" [ref=e25] [cursor=pointer]:
+        - /url: javascript:showKeyboardShortcutsHelp();
+      - text: "|"
+      - link "Logout" [ref=e26] [cursor=pointer]:
+        - /url: /crmsfa/control/logout
+    - generic [ref=e27]:
+      - table [ref=e36]:
+        - rowgroup [ref=e37]:
+          - row "Search" [ref=e38]:
+            - cell [ref=e39]:
+              - textbox [ref=e43]
+            - cell "Search" [ref=e44]:
+              - table [ref=e48] [cursor=pointer]:
+                - rowgroup [ref=e49]:
+                  - row "Search" [ref=e50]:
+                    - cell [ref=e51]
+                    - cell "Search" [ref=e53]:
+                      - emphasis [ref=e54]:
+                        - button "Search" [ref=e55]
+                    - cell [ref=e56]
+      - link "Live help for this page on opentaps Wiki" [ref=e58] [cursor=pointer]:
+        - /url: http://www.opentaps.org/docs/index.php?title=View_Contact_Screen&oldid=0
+        - img "Live help for this page on opentaps Wiki" [ref=e59]
+      - link "Get help from an opentaps Partner" [ref=e60] [cursor=pointer]:
+        - /url: http://www.opentaps.org/contact
+        - img "Get help from an opentaps Partner" [ref=e61]
+  - list:
+    - listitem [ref=e63]:
+      - link "My Home" [ref=e69] [cursor=pointer]:
+        - /url: /crmsfa/control/myHomeMain
+    - listitem [ref=e70]:
+      - link "Leads" [ref=e76] [cursor=pointer]:
+        - /url: /crmsfa/control/leadsMain
+    - listitem [ref=e77]:
+      - link "Contacts" [ref=e83] [cursor=pointer]:
+        - /url: /crmsfa/control/contactsMain
+    - listitem [ref=e84]:
+      - link "Accounts" [ref=e90] [cursor=pointer]:
+        - /url: /crmsfa/control/accountsMain
+    - listitem [ref=e91]:
+      - link "Cases" [ref=e97] [cursor=pointer]:
+        - /url: /crmsfa/control/casesMain
+    - listitem [ref=e98]:
+      - link "Activities" [ref=e104] [cursor=pointer]:
+        - /url: /crmsfa/control/activitiesMain
+    - listitem [ref=e105]:
+      - link "Opportunities" [ref=e111] [cursor=pointer]:
+        - /url: /crmsfa/control/opportunitiesMain
+    - listitem [ref=e112]:
+      - link "Quotes" [ref=e118] [cursor=pointer]:
+        - /url: /crmsfa/control/quotesMain
+    - listitem [ref=e119]:
+      - link "Orders" [ref=e125] [cursor=pointer]:
+        - /url: /crmsfa/control/ordersMain
+    - listitem [ref=e126]:
+      - link "Forecasts" [ref=e132] [cursor=pointer]:
+        - /url: /crmsfa/control/forecastsMain
+    - listitem [ref=e133]:
+      - link "Marketing" [ref=e139] [cursor=pointer]:
+        - /url: /crmsfa/control/marketingMain
+    - listitem [ref=e140]:
+      - link "Partners" [ref=e146] [cursor=pointer]:
+        - /url: /crmsfa/control/partnersMain
+    - listitem [ref=e147]:
+      - link "Teams" [ref=e153] [cursor=pointer]:
+        - /url: /crmsfa/control/teamsMain
+    - listitem [ref=e154]:
+      - link "Reports" [ref=e160] [cursor=pointer]:
+        - /url: /crmsfa/control/viewDashboard
+    - listitem [ref=e161]:
+      - link "opentaps" [ref=e167] [cursor=pointer]:
+        - /url: /opentaps?externalLoginKey=EL616599158502
+  - table [ref=e170]:
+    - rowgroup [ref=e171]:
+      - 'row "Last Viewed: krish__1775966683997 jk__… krish__1775966671564 jk__… Helix__1775966671331 srini_1775966671157 vasan… krish__1775966638874 jk__… srini_1775966510640 vasan… Helix__1775966510746" [ref=e172]':
+        - 'cell "Last Viewed: krish__1775966683997 jk__… krish__1775966671564 jk__… Helix__1775966671331 srini_1775966671157 vasan… krish__1775966638874 jk__… srini_1775966510640 vasan… Helix__1775966510746" [ref=e173]':
+          - list [ref=e174]:
+            - listitem [ref=e175]:
+              - generic [ref=e176]: "Last Viewed:"
+            - listitem [ref=e177]:
+              - link "krish__1775966683997 jk__…" [ref=e178] [cursor=pointer]:
+                - /url: /crmsfa/control/viewContact?partyId=10615
+            - listitem [ref=e179]:
+              - link "krish__1775966671564 jk__…" [ref=e180] [cursor=pointer]:
+                - /url: /crmsfa/control/viewContact?partyId=10614
+            - listitem [ref=e181]:
+              - link "Helix__1775966671331" [ref=e182] [cursor=pointer]:
+                - /url: /crmsfa/control/viewAccount?partyId=10613
+            - listitem [ref=e183]:
+              - link "srini_1775966671157 vasan…" [ref=e184] [cursor=pointer]:
+                - /url: /crmsfa/control/viewLead?partyId=10612
+            - listitem [ref=e185]:
+              - link "krish__1775966638874 jk__…" [ref=e186] [cursor=pointer]:
+                - /url: /crmsfa/control/viewContact?partyId=10611
+            - listitem [ref=e187]:
+              - link "srini_1775966510640 vasan…" [ref=e188] [cursor=pointer]:
+                - /url: /crmsfa/control/viewLead?partyId=10610
+            - listitem [ref=e189]:
+              - link "Helix__1775966510746" [ref=e190] [cursor=pointer]:
+                - /url: /crmsfa/control/viewAccount?partyId=10609
+  - generic [ref=e192]:
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - generic [ref=e199]: Shortcuts
+        - list [ref=e201]:
+          - listitem [ref=e202]:
+            - link "My Contacts" [ref=e203] [cursor=pointer]:
+              - /url: /crmsfa/control/myContacts
+          - listitem [ref=e204]:
+            - link "Create Contact" [ref=e205] [cursor=pointer]:
+              - /url: /crmsfa/control/createContactForm
+          - listitem [ref=e206]:
+            - link "Find Contacts" [ref=e207] [cursor=pointer]:
+              - /url: /crmsfa/control/findContacts
+          - listitem [ref=e208]:
+            - link "Merge Contacts" [ref=e209] [cursor=pointer]:
+              - /url: /crmsfa/control/mergeContactsForm
+      - generic [ref=e210]:
+        - generic [ref=e215]: Contact Shortcuts
+        - list [ref=e217]:
+          - listitem [ref=e218]:
+            - link "Create Order" [ref=e219] [cursor=pointer]:
+              - /url: /crmsfa/control/newOrder?partyId=10616
+          - listitem [ref=e220]:
+            - link "Orders" [ref=e221] [cursor=pointer]:
+              - /url: /crmsfa/control/findOrders?partyIdSearch=10616&performFind=Y
+      - generic [ref=e224]:
+        - generic [ref=e228] [cursor=pointer]: Create Account
+        - generic [ref=e230]:
+          - generic [ref=e235]:
+            - generic [ref=e236]:
+              - text: "Account Name:"
+              - textbox "Account Name:" [ref=e238]
+            - generic [ref=e241]:
+              - text: "Phone Number:"
+              - table [ref=e245]:
+                - rowgroup [ref=e246]:
+                  - row "1" [ref=e247]:
+                    - cell "1" [ref=e248]:
+                      - textbox [ref=e252]: "1"
+                    - cell [ref=e253]:
+                      - textbox [ref=e257]
+                    - cell [ref=e258]:
+                      - textbox [ref=e262]
+            - generic [ref=e263]:
+              - text: "E-Mail Address:"
+              - textbox "E-Mail Address:" [ref=e265]
+          - table [ref=e272]:
+            - rowgroup [ref=e273]:
+              - row "Create Account" [ref=e274]:
+                - cell "Create Account" [ref=e275]:
+                  - table [ref=e276] [cursor=pointer]:
+                    - rowgroup [ref=e277]:
+                      - row "Create Account" [ref=e278]:
+                        - cell [ref=e279]
+                        - cell "Create Account" [ref=e281]:
+                          - emphasis [ref=e282]:
+                            - button "Create Account" [ref=e283]
+                        - cell [ref=e284]
+      - generic [ref=e292] [cursor=pointer]: Create Contact
+      - generic [ref=e300] [cursor=pointer]: Create Case
+      - generic [ref=e304]:
+        - generic [ref=e308] [cursor=pointer]: Create Lead
+        - generic [ref=e310]:
+          - generic [ref=e315]:
+            - generic [ref=e316]:
+              - text: "Company Name:"
+              - textbox "Company Name:" [ref=e318]
+            - generic [ref=e319]:
+              - text: "First name:"
+              - textbox "First name:" [ref=e321]
+            - generic [ref=e322]:
+              - text: "Last name:"
+              - textbox "Last name:" [ref=e324]
+            - generic [ref=e327]:
+              - text: "Phone Number:"
+              - table [ref=e331]:
+                - rowgroup [ref=e332]:
+                  - row "1" [ref=e333]:
+                    - cell "1" [ref=e334]:
+                      - textbox [ref=e338]: "1"
+                    - cell [ref=e339]:
+                      - textbox [ref=e343]
+                    - cell [ref=e344]:
+                      - textbox [ref=e348]
+            - generic [ref=e349]:
+              - text: "E-Mail Address:"
+              - textbox "E-Mail Address:" [ref=e351]
+          - table [ref=e358]:
+            - rowgroup [ref=e359]:
+              - row "Create Lead" [ref=e360]:
+                - cell "Create Lead" [ref=e361]:
+                  - table [ref=e362] [cursor=pointer]:
+                    - rowgroup [ref=e363]:
+                      - row "Create Lead" [ref=e364]:
+                        - cell [ref=e365]
+                        - cell "Create Lead" [ref=e367]:
+                          - emphasis [ref=e368]:
+                            - button "Create Lead" [ref=e369]
+                        - cell [ref=e370]
+      - generic [ref=e374]:
+        - generic [ref=e378] [cursor=pointer]: Create Opportunity
+        - generic [ref=e380]:
+          - generic [ref=e385]:
+            - generic [ref=e386]:
+              - text: "Account Or Lead:"
+              - generic [ref=e387]:
+                - generic:
+                  - textbox "Account Or Lead:" [ref=e388]: Type text
+                  - img [ref=e389] [cursor=pointer]
+            - generic [ref=e390]:
+              - text: "Opportunity Name:"
+              - textbox "Opportunity Name:" [ref=e392]
+            - generic [ref=e393]:
+              - text: "Initial Stage:"
+              - generic [ref=e394]:
+                - generic:
+                  - textbox "Initial Stage:" [ref=e395]: Prospect
+                  - img [ref=e396] [cursor=pointer]
+            - generic [ref=e397]:
+              - text: "Opportunity Amount:"
+              - textbox "Opportunity Amount:" [ref=e399]
+            - generic [ref=e400]:
+              - text: "Estimated Close Date:"
+              - generic [ref=e401]:
+                - generic:
+                  - textbox "Estimated Close Date:" [ref=e402]
+                  - img [ref=e403] [cursor=pointer]
+          - table [ref=e410]:
+            - rowgroup [ref=e411]:
+              - row "Create Opportunity" [ref=e412]:
+                - cell "Create Opportunity" [ref=e413]:
+                  - table [ref=e414] [cursor=pointer]:
+                    - rowgroup [ref=e415]:
+                      - row "Create Opportunity" [ref=e416]:
+                        - cell [ref=e417]
+                        - cell "Create Opportunity" [ref=e419]:
+                          - emphasis [ref=e420]:
+                            - button "Create Opportunity" [ref=e421]
+                        - cell [ref=e422]
+      - generic [ref=e424]:
+        - generic [ref=e429]: Form Letters
+        - table [ref=e432]:
+          - rowgroup [ref=e433]:
+            - row "Form Letter Template New User Welcome" [ref=e434]:
+              - cell "Form Letter Template New User Welcome" [ref=e435]:
+                - text: Form Letter Template
+                - combobox [ref=e436]:
+                  - option "New User Welcome" [selected]
+            - row "Output Text" [ref=e437]:
+              - cell "Output Text" [ref=e438]:
+                - text: Output
+                - combobox [ref=e439]:
+                  - option "Text" [selected]
+                  - option "MS Word"
+                  - option "XML"
+                  - option "HTML"
+                  - option "PDF"
+            - row "Generate Letter" [ref=e440]:
+              - cell "Generate Letter" [ref=e441]:
+                - button "Generate Letter" [ref=e442] [cursor=pointer]
+    - generic [ref=e443]:
+      - generic [ref=e449]: View Contact
+      - generic [ref=e454]:
+        - generic [ref=e455]:
+          - generic [ref=e459]:
+            - generic [ref=e460]: Contact
+            - generic [ref=e461]:
+              - link "Edit" [ref=e462] [cursor=pointer]:
+                - /url: /crmsfa/control/updateContactForm?partyId=10616
+              - link "Deactivate Contact" [ref=e463] [cursor=pointer]:
+                - /url: javascript:opentaps.confirmAction('Are you sure?', null, 'DeactivateContactHiddenForm', null);
+          - generic [ref=e464]:
+            - generic [ref=e466]:
+              - table [ref=e468]:
+                - rowgroup [ref=e469]:
+                  - row [ref=e470]:
+                    - cell [ref=e471]
+                    - cell [ref=e472]
+              - table [ref=e474]:
+                - rowgroup [ref=e475]:
+                  - row "Name krish__1775966695965 jk__1775966695965 (10616)" [ref=e476]:
+                    - cell "Name" [ref=e477]
+                    - cell "krish__1775966695965 jk__1775966695965 (10616)" [ref=e478]
+                  - row "First name krish__1775966695965 Last name jk__1775966695965" [ref=e479]:
+                    - cell "First name" [ref=e480]
+                    - cell "krish__1775966695965" [ref=e481]
+                    - cell "Last name" [ref=e482]
+                    - cell "jk__1775966695965" [ref=e483]
+                  - row "First Name (Local) Last Name (Local)" [ref=e484]:
+                    - cell "First Name (Local)" [ref=e485]
+                    - cell [ref=e486]
+                    - cell "Last Name (Local)" [ref=e487]
+                    - cell [ref=e488]
+                  - row "Salutation Birth Date" [ref=e489]:
+                    - cell "Salutation" [ref=e490]
+                    - cell [ref=e491]
+                    - cell "Birth Date" [ref=e492]
+                    - cell [ref=e493]
+                  - row "Title Department" [ref=e494]:
+                    - cell "Title" [ref=e495]
+                    - cell [ref=e496]
+                    - cell "Department" [ref=e497]
+                    - cell [ref=e498]
+                  - row "Preferred Currency USD - American Dollar" [ref=e499]:
+                    - cell "Preferred Currency" [ref=e500]
+                    - cell "USD - American Dollar" [ref=e501]
+                  - row "Description Description__1775966695965" [ref=e502]:
+                    - cell "Description" [ref=e503]
+                    - cell "Description__1775966695965" [ref=e504]
+                  - row "Important Note" [ref=e505]:
+                    - cell "Important Note" [ref=e506]
+                    - cell [ref=e507]
+                  - row "Classifications" [ref=e508]:
+                    - cell "Classifications" [ref=e509]
+                    - cell [ref=e510]
+                  - row "Marketing Campaigns" [ref=e511]:
+                    - cell "Marketing Campaigns" [ref=e512]
+                    - cell [ref=e513]
+            - generic [ref=e515]:
+              - table [ref=e517]:
+                - rowgroup [ref=e518]:
+                  - row [ref=e519]:
+                    - cell [ref=e520]
+                    - cell [ref=e521]
+              - table [ref=e523]:
+                - rowgroup [ref=e524]:
+                  - row "Person Responsible For Demo Sales Manager" [ref=e525]:
+                    - cell "Person Responsible For" [ref=e526]
+                    - cell "Demo Sales Manager" [ref=e527]
+            - generic [ref=e529]:
+              - table [ref=e531]:
+                - rowgroup [ref=e532]:
+                  - row [ref=e533]:
+                    - cell [ref=e534]
+                    - cell [ref=e535]
+              - table [ref=e537]:
+                - rowgroup [ref=e538]:
+                  - row "Reassign To Lookup" [ref=e539]:
+                    - cell "Reassign To" [ref=e540]
+                    - cell "Lookup" [ref=e541]:
+                      - textbox [ref=e542]
+                      - link "Lookup" [ref=e543] [cursor=pointer]:
+                        - /url: javascript:call_fieldlookup2(document.reassignToForm.newPartyId,'LookupTeamMembers;jsessionid=7DFA489983FFE8298ECC5173F706BCF5.jvm1');
+                        - img "Lookup" [ref=e544]
+                  - row "Reassign" [ref=e545]:
+                    - cell [ref=e546]
+                    - cell "Reassign" [ref=e547]:
+                      - button "Reassign" [ref=e548] [cursor=pointer]
+        - generic [ref=e550]:
+          - generic [ref=e555]: Custom Fields
+          - table [ref=e557]:
+            - rowgroup [ref=e558]:
+              - row "Field Value" [ref=e559]:
+                - cell
+                - cell "Field" [ref=e560]:
+                  - generic [ref=e561]: Field
+                - cell "Value" [ref=e562]:
+                  - generic [ref=e563]: Value
+                - cell [ref=e564]
+              - row "Add" [ref=e565]:
+                - cell
+                - cell [ref=e566]:
+                  - textbox [ref=e567]
+                - cell [ref=e568]:
+                  - textbox [ref=e569]
+                - cell "Add" [ref=e570]:
+                  - link "Add" [ref=e571] [cursor=pointer]:
+                    - /url: javascript:document.addCustomField.submit();
+                    - img "Add" [ref=e572]
+        - generic [ref=e574]:
+          - generic [ref=e578]:
+            - generic [ref=e579]: Contact Information
+            - combobox [ref=e581]:
+              - option "Create New" [selected]
+              - option "..."
+              - option "Address"
+              - option "Phone Number"
+              - option "Email"
+              - option "Web URL"
+              - option "Skype Contact"
+          - generic [ref=e583]: No contact information on file
+        - generic [ref=e584]:
+          - generic [ref=e588]:
+            - generic [ref=e589]: Pending Activities
+            - generic [ref=e590]:
+              - link "New Event" [ref=e591] [cursor=pointer]:
+                - /url: createEventForm?partyId=10616&workEffortTypeId=EVENT
+              - link "New Task" [ref=e592] [cursor=pointer]:
+                - /url: createTaskForm?partyId=10616&workEffortTypeId=TASK
+          - table [ref=e593]:
+            - rowgroup [ref=e594]:
+              - row "Type Purpose Activity Status Scheduled Date Due Date Remove" [ref=e595]:
+                - cell "Type" [ref=e596]:
+                  - link "Type" [ref=e598] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=workEffortTypeId#ListPendingActivities
+                - cell "Purpose" [ref=e599]:
+                  - link "Purpose" [ref=e601] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=workEffortPurposeTypeId#ListPendingActivities
+                - cell "Activity" [ref=e602]:
+                  - link "Activity" [ref=e604] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=workEffortName#ListPendingActivities
+                - cell "Status" [ref=e605]:
+                  - link "Status" [ref=e607] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&activitiesOrderBy=currentStatusId#ListPendingActivities
+                - cell "Scheduled Date" [ref=e608]:
+                  - link "Scheduled Date" [ref=e610] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=estimatedStartDate#ListPendingActivities
+                - cell "Due Date" [ref=e611]:
+                  - link "Due Date" [ref=e613] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=estimatedCompletionDate#ListPendingActivities
+                - cell "Remove" [ref=e614]
+        - generic [ref=e615]:
+          - generic [ref=e619]:
+            - generic [ref=e620]: Accounts
+            - generic [ref=e622]:
+              - link "Create New" [ref=e623] [cursor=pointer]:
+                - /url: /crmsfa/control/createAccountForm?contactPartyId=10616
+              - button "Assign Account" [ref=e624] [cursor=pointer]
+          - generic [ref=e631]:
+            - generic [ref=e634]:
+              - table [ref=e638]:
+                - rowgroup [ref=e639]:
+                  - row "Account Name City Primary Email Primary Phone" [ref=e640]:
+                    - cell "Account Name" [ref=e641]:
+                      - generic [ref=e642]: Account Name
+                    - cell "City" [ref=e643]:
+                      - generic [ref=e644]: City
+                    - cell "Primary Email" [ref=e645]:
+                      - generic [ref=e646]: Primary Email
+                    - cell "Primary Phone" [ref=e647]:
+                      - generic [ref=e648]: Primary Phone
+                    - cell [ref=e649]
+              - generic:
+                - link:
+                  - /url: "#"
+            - generic [ref=e652]:
+              - table [ref=e653]:
+                - rowgroup [ref=e654]:
+                  - row "Page 1 of 1 10 records per page. Export To Excel" [ref=e655]:
+                    - cell [ref=e656]:
+                      - table [ref=e657]:
+                        - rowgroup [ref=e658]:
+                          - row [ref=e659]:
+                            - cell [ref=e660]
+                            - cell [ref=e662]:
+                              - emphasis [ref=e663]:
+                                - button [ref=e664]
+                            - cell [ref=e665]
+                    - cell [ref=e667]:
+                      - table [ref=e668]:
+                        - rowgroup [ref=e669]:
+                          - row [ref=e670]:
+                            - cell [ref=e671]
+                            - cell [ref=e673]:
+                              - emphasis [ref=e674]:
+                                - button [ref=e675]
+                            - cell [ref=e676]
+                    - cell [ref=e678]
+                    - cell "Page" [ref=e680]
+                    - cell "1" [ref=e681]:
+                      - textbox [ref=e682]: "1"
+                    - cell "of 1" [ref=e683]
+                    - cell [ref=e684]
+                    - cell [ref=e686]:
+                      - table [ref=e687]:
+                        - rowgroup [ref=e688]:
+                          - row [ref=e689]:
+                            - cell [ref=e690]
+                            - cell [ref=e692]:
+                              - emphasis [ref=e693]:
+                                - button [ref=e694]
+                            - cell [ref=e695]
+                    - cell [ref=e697]:
+                      - table [ref=e698]:
+                        - rowgroup [ref=e699]:
+                          - row [ref=e700]:
+                            - cell [ref=e701]
+                            - cell [ref=e703]:
+                              - emphasis [ref=e704]:
+                                - button [ref=e705]
+                            - cell [ref=e706]
+                    - cell [ref=e708]
+                    - cell [ref=e710]:
+                      - table [ref=e711] [cursor=pointer]:
+                        - rowgroup [ref=e712]:
+                          - row [ref=e713]:
+                            - cell [ref=e714]
+                            - cell [ref=e716]:
+                              - emphasis [ref=e717]:
+                                - button [ref=e718]
+                            - cell [ref=e719]
+                    - cell "10" [ref=e721]:
+                      - textbox [ref=e722]: "10"
+                    - cell "records per page." [ref=e723]
+                    - cell [ref=e724]
+                    - cell "Export To Excel" [ref=e726]:
+                      - table [ref=e727] [cursor=pointer]:
+                        - rowgroup [ref=e728]:
+                          - row "Export To Excel" [ref=e729]:
+                            - cell [ref=e730]
+                            - cell "Export To Excel" [ref=e732]:
+                              - emphasis [ref=e733]:
+                                - button "Export To Excel" [ref=e734]
+                            - cell [ref=e735]
+              - generic [ref=e737]: No records to display
+        - generic [ref=e741]:
+          - generic [ref=e745]:
+            - generic [ref=e746]: Open Orders
+            - link "Orders" [ref=e748] [cursor=pointer]:
+              - /url: /crmsfa/control/findOrders?partyIdSearch=10616&performFind=Y
+          - generic [ref=e755]:
+            - generic [ref=e758]:
+              - table [ref=e762]:
+                - rowgroup [ref=e763]:
+                  - 'row "Order Date Order Name and ID PO # Customer Status Ship Before Date Amount" [ref=e764]':
+                    - cell "Order Date" [ref=e765]:
+                      - generic [ref=e766]: Order Date
+                    - cell "Order Name and ID" [ref=e767]:
+                      - generic [ref=e768]: Order Name and ID
+                    - 'cell "PO #" [ref=e769]':
+                      - generic [ref=e770]: "PO #"
+                    - cell "Customer" [ref=e771]:
+                      - generic [ref=e772]: Customer
+                    - cell "Status" [ref=e773]:
+                      - generic [ref=e774]: Status
+                    - cell "Ship Before Date" [ref=e775]:
+                      - generic [ref=e776]: Ship Before Date
+                    - cell "Amount" [ref=e777]:
+                      - generic [ref=e778]: Amount
+              - generic:
+                - link:
+                  - /url: "#"
+            - generic [ref=e780]:
+              - table [ref=e781]:
+                - rowgroup [ref=e782]:
+                  - row "Page 1 of 1 10 records per page. Export To Excel" [ref=e783]:
+                    - cell [ref=e784]:
+                      - table [ref=e785]:
+                        - rowgroup [ref=e786]:
+                          - row [ref=e787]:
+                            - cell [ref=e788]
+                            - cell [ref=e790]:
+                              - emphasis [ref=e791]:
+                                - button [ref=e792]
+                            - cell [ref=e793]
+                    - cell [ref=e795]:
+                      - table [ref=e796]:
+                        - rowgroup [ref=e797]:
+                          - row [ref=e798]:
+                            - cell [ref=e799]
+                            - cell [ref=e801]:
+                              - emphasis [ref=e802]:
+                                - button [ref=e803]
+                            - cell [ref=e804]
+                    - cell [ref=e806]
+                    - cell "Page" [ref=e808]
+                    - cell "1" [ref=e809]:
+                      - textbox [ref=e810]: "1"
+                    - cell "of 1" [ref=e811]
+                    - cell [ref=e812]
+                    - cell [ref=e814]:
+                      - table [ref=e815]:
+                        - rowgroup [ref=e816]:
+                          - row [ref=e817]:
+                            - cell [ref=e818]
+                            - cell [ref=e820]:
+                              - emphasis [ref=e821]:
+                                - button [ref=e822]
+                            - cell [ref=e823]
+                    - cell [ref=e825]:
+                      - table [ref=e826]:
+                        - rowgroup [ref=e827]:
+                          - row [ref=e828]:
+                            - cell [ref=e829]
+                            - cell [ref=e831]:
+                              - emphasis [ref=e832]:
+                                - button [ref=e833]
+                            - cell [ref=e834]
+                    - cell [ref=e836]
+                    - cell [ref=e838]:
+                      - table [ref=e839] [cursor=pointer]:
+                        - rowgroup [ref=e840]:
+                          - row [ref=e841]:
+                            - cell [ref=e842]
+                            - cell [ref=e844]:
+                              - emphasis [ref=e845]:
+                                - button [ref=e846]
+                            - cell [ref=e847]
+                    - cell "10" [ref=e849]:
+                      - textbox [ref=e850]: "10"
+                    - cell "records per page." [ref=e851]
+                    - cell [ref=e852]
+                    - cell "Export To Excel" [ref=e854]:
+                      - table [ref=e855] [cursor=pointer]:
+                        - rowgroup [ref=e856]:
+                          - row "Export To Excel" [ref=e857]:
+                            - cell [ref=e858]
+                            - cell "Export To Excel" [ref=e860]:
+                              - emphasis [ref=e861]:
+                                - button "Export To Excel" [ref=e862]
+                            - cell [ref=e863]
+              - generic [ref=e865]: No records to display
+        - generic [ref=e869]:
+          - generic [ref=e873]:
+            - generic [ref=e874]: Opportunities
+            - link "Create New" [ref=e876] [cursor=pointer]:
+              - /url: /crmsfa/control/createOpportunityForm?contactPartyId=10616
+          - generic [ref=e883]:
+            - generic [ref=e886]:
+              - table [ref=e890]:
+                - rowgroup [ref=e891]:
+                  - row "Opportunity Name Stage Opportunity Amount Estimated Close Date" [ref=e892]:
+                    - cell "Opportunity Name" [ref=e893]:
+                      - generic [ref=e894]: Opportunity Name
+                    - cell "Stage" [ref=e895]:
+                      - generic [ref=e896]: Stage
+                    - cell "Opportunity Amount" [ref=e897]:
+                      - generic [ref=e898]: Opportunity Amount
+                    - cell "Estimated Close Date" [ref=e899]:
+                      - generic [ref=e900]: Estimated Close Date
+              - generic:
+                - link:
+                  - /url: "#"
+            - generic [ref=e902]:
+              - table [ref=e903]:
+                - rowgroup [ref=e904]:
+                  - row "Page 1 of 1 10 records per page. Export To Excel" [ref=e905]:
+                    - cell [ref=e906]:
+                      - table [ref=e907]:
+                        - rowgroup [ref=e908]:
+                          - row [ref=e909]:
+                            - cell [ref=e910]
+                            - cell [ref=e912]:
+                              - emphasis [ref=e913]:
+                                - button [ref=e914]
+                            - cell [ref=e915]
+                    - cell [ref=e917]:
+                      - table [ref=e918]:
+                        - rowgroup [ref=e919]:
+                          - row [ref=e920]:
+                            - cell [ref=e921]
+                            - cell [ref=e923]:
+                              - emphasis [ref=e924]:
+                                - button [ref=e925]
+                            - cell [ref=e926]
+                    - cell [ref=e928]
+                    - cell "Page" [ref=e930]
+                    - cell "1" [ref=e931]:
+                      - textbox [ref=e932]: "1"
+                    - cell "of 1" [ref=e933]
+                    - cell [ref=e934]
+                    - cell [ref=e936]:
+                      - table [ref=e937]:
+                        - rowgroup [ref=e938]:
+                          - row [ref=e939]:
+                            - cell [ref=e940]
+                            - cell [ref=e942]:
+                              - emphasis [ref=e943]:
+                                - button [ref=e944]
+                            - cell [ref=e945]
+                    - cell [ref=e947]:
+                      - table [ref=e948]:
+                        - rowgroup [ref=e949]:
+                          - row [ref=e950]:
+                            - cell [ref=e951]
+                            - cell [ref=e953]:
+                              - emphasis [ref=e954]:
+                                - button [ref=e955]
+                            - cell [ref=e956]
+                    - cell [ref=e958]
+                    - cell [ref=e960]:
+                      - table [ref=e961] [cursor=pointer]:
+                        - rowgroup [ref=e962]:
+                          - row [ref=e963]:
+                            - cell [ref=e964]
+                            - cell [ref=e966]:
+                              - emphasis [ref=e967]:
+                                - button [ref=e968]
+                            - cell [ref=e969]
+                    - cell "10" [ref=e971]:
+                      - textbox [ref=e972]: "10"
+                    - cell "records per page." [ref=e973]
+                    - cell [ref=e974]
+                    - cell "Export To Excel" [ref=e976]:
+                      - table [ref=e977] [cursor=pointer]:
+                        - rowgroup [ref=e978]:
+                          - row "Export To Excel" [ref=e979]:
+                            - cell [ref=e980]
+                            - cell "Export To Excel" [ref=e982]:
+                              - emphasis [ref=e983]:
+                                - button "Export To Excel" [ref=e984]
+                            - cell [ref=e985]
+              - generic [ref=e987]: No records to display
+        - generic [ref=e992]:
+          - generic [ref=e996]:
+            - generic [ref=e997]: Payment and Shipping Accounts
+            - combobox [ref=e999]:
+              - option "Create New" [selected]
+              - option "..."
+              - option "EFT Account"
+              - option "Gift Card"
+              - option "Credit Card"
+              - option "Tax Id"
+              - option "Shipping Account"
+          - generic [ref=e1000]: No payment method information on file.
+        - generic [ref=e1001]:
+          - generic [ref=e1005]:
+            - generic [ref=e1006]: Cases
+            - link "Create New" [ref=e1008] [cursor=pointer]:
+              - /url: /crmsfa/control/createCaseForm?contactPartyId=10616
+          - generic [ref=e1015]:
+            - generic [ref=e1018]:
+              - table [ref=e1022]:
+                - rowgroup [ref=e1023]:
+                  - row "Priority Subject Status Type Reason" [ref=e1024]:
+                    - cell "Priority" [ref=e1025]:
+                      - generic [ref=e1026]:
+                        - text: Priority
+                        - img [ref=e1027]
+                    - cell "Subject" [ref=e1028]:
+                      - generic [ref=e1029]: Subject
+                    - cell "Status" [ref=e1030]:
+                      - generic [ref=e1031]: Status
+                    - cell "Type" [ref=e1032]:
+                      - generic [ref=e1033]: Type
+                    - cell "Reason" [ref=e1034]:
+                      - generic [ref=e1035]: Reason
+              - generic:
+                - link:
+                  - /url: "#"
+            - generic [ref=e1037]:
+              - table [ref=e1038]:
+                - rowgroup [ref=e1039]:
+                  - row "Page 1 of 1 10 records per page. Export To Excel" [ref=e1040]:
+                    - cell [ref=e1041]:
+                      - table [ref=e1042]:
+                        - rowgroup [ref=e1043]:
+                          - row [ref=e1044]:
+                            - cell [ref=e1045]
+                            - cell [ref=e1047]:
+                              - emphasis [ref=e1048]:
+                                - button [ref=e1049]
+                            - cell [ref=e1050]
+                    - cell [ref=e1052]:
+                      - table [ref=e1053]:
+                        - rowgroup [ref=e1054]:
+                          - row [ref=e1055]:
+                            - cell [ref=e1056]
+                            - cell [ref=e1058]:
+                              - emphasis [ref=e1059]:
+                                - button [ref=e1060]
+                            - cell [ref=e1061]
+                    - cell [ref=e1063]
+                    - cell "Page" [ref=e1065]
+                    - cell "1" [ref=e1066]:
+                      - textbox [ref=e1067]: "1"
+                    - cell "of 1" [ref=e1068]
+                    - cell [ref=e1069]
+                    - cell [ref=e1071]:
+                      - table [ref=e1072]:
+                        - rowgroup [ref=e1073]:
+                          - row [ref=e1074]:
+                            - cell [ref=e1075]
+                            - cell [ref=e1077]:
+                              - emphasis [ref=e1078]:
+                                - button [ref=e1079]
+                            - cell [ref=e1080]
+                    - cell [ref=e1082]:
+                      - table [ref=e1083]:
+                        - rowgroup [ref=e1084]:
+                          - row [ref=e1085]:
+                            - cell [ref=e1086]
+                            - cell [ref=e1088]:
+                              - emphasis [ref=e1089]:
+                                - button [ref=e1090]
+                            - cell [ref=e1091]
+                    - cell [ref=e1093]
+                    - cell [ref=e1095]:
+                      - table [ref=e1096] [cursor=pointer]:
+                        - rowgroup [ref=e1097]:
+                          - row [ref=e1098]:
+                            - cell [ref=e1099]
+                            - cell [ref=e1101]:
+                              - emphasis [ref=e1102]:
+                                - button [ref=e1103]
+                            - cell [ref=e1104]
+                    - cell "10" [ref=e1106]:
+                      - textbox [ref=e1107]: "10"
+                    - cell "records per page." [ref=e1108]
+                    - cell [ref=e1109]
+                    - cell "Export To Excel" [ref=e1111]:
+                      - table [ref=e1112] [cursor=pointer]:
+                        - rowgroup [ref=e1113]:
+                          - row "Export To Excel" [ref=e1114]:
+                            - cell [ref=e1115]
+                            - cell "Export To Excel" [ref=e1117]:
+                              - emphasis [ref=e1118]:
+                                - button "Export To Excel" [ref=e1119]
+                            - cell [ref=e1120]
+              - generic [ref=e1122]: No records to display
+        - generic [ref=e1126]:
+          - generic [ref=e1130]:
+            - generic [ref=e1131]: Activities History
+            - generic [ref=e1132]:
+              - link "Log Call" [ref=e1133] [cursor=pointer]:
+                - /url: logTaskForm?partyId=10616&workEffortPurposeTypeId=WEPT_TASK_PHONE_CALL
+              - link "Log Email" [ref=e1134] [cursor=pointer]:
+                - /url: logTaskForm?partyId=10616&workEffortPurposeTypeId=WEPT_TASK_EMAIL&duration=0%3A00
+          - table [ref=e1135]:
+            - rowgroup [ref=e1136]:
+              - row "Type Purpose Activity Status Started Date Completion Date Remove" [ref=e1137]:
+                - cell "Type" [ref=e1138]:
+                  - link "Type" [ref=e1140] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&completedActivitiesOrderBy=workEffortTypeId#ListCompletedActivities
+                - cell "Purpose" [ref=e1141]:
+                  - link "Purpose" [ref=e1143] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&pendingActivitiesOrderBy=workEffortPurposeTypeId#ListCompletedActivities
+                - cell "Activity" [ref=e1144]:
+                  - link "Activity" [ref=e1146] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&completedActivitiesOrderBy=workEffortName#ListCompletedActivities
+                - cell "Status" [ref=e1147]:
+                  - link "Status" [ref=e1149] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&completedActivitiesOrderBy=currentStatusId#ListCompletedActivities
+                - cell "Started Date" [ref=e1150]:
+                  - link "Started Date" [ref=e1152] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&completedActivitiesOrderBy=estimatedStartDate#ListCompletedActivities
+                - cell "Completion Date" [ref=e1153]:
+                  - link "Completion Date" [ref=e1155] [cursor=pointer]:
+                    - /url: /crmsfa/control/viewContact?partyId=10616&completedActivitiesOrderBy=estimatedCompletionDate#ListCompletedActivities
+                - cell "Remove" [ref=e1156]
+        - generic [ref=e1157]:
+          - generic [ref=e1162]: Catalog Requests
+          - table [ref=e1163]:
+            - rowgroup [ref=e1164]:
+              - row "Date Address Taken By Fulfilled" [ref=e1165]:
+                - cell "Date" [ref=e1166]
+                - cell "Address" [ref=e1167]
+                - cell "Taken By" [ref=e1168]
+                - cell "Fulfilled" [ref=e1169]
+        - generic [ref=e1170]:
+          - generic [ref=e1174]:
+            - generic [ref=e1175]: Bookmarks and Files
+            - generic [ref=e1176]:
+              - link "Bookmark URL" [ref=e1177] [cursor=pointer]:
+                - /url: /crmsfa/control/addContentUrlForContact?partyId=10616
+              - link "Upload File" [ref=e1178] [cursor=pointer]:
+                - /url: /crmsfa/control/uploadContentForContact?partyId=10616
+          - table [ref=e1179]:
+            - rowgroup [ref=e1180]:
+              - row "Name Classification Description Created Date" [ref=e1181]:
+                - cell "Name" [ref=e1182]
+                - cell "Classification" [ref=e1183]
+                - cell "Description" [ref=e1184]
+                - cell "Created Date" [ref=e1185]
+                - cell [ref=e1186]
+                - cell [ref=e1187]
+        - generic [ref=e1188]:
+          - generic [ref=e1192]:
+            - generic [ref=e1193]: Notes
+            - link "Create New" [ref=e1195] [cursor=pointer]:
+              - /url: createContactNoteForm?partyId=10616
+          - table [ref=e1196]:
+            - rowgroup [ref=e1197]:
+              - row "Note Info Created By Note Date Time" [ref=e1198]:
+                - cell "Note Info" [ref=e1199]
+                - cell "Created By" [ref=e1200]
+                - cell "Note Date Time" [ref=e1201]
+                - cell [ref=e1202]
+      - generic [ref=e1204]:
+        - link "© 2026 Testleaf." [ref=e1205] [cursor=pointer]:
+          - /url: https://testleaf.com
+        - text: All rights reserved.
+  - iframe
+  - iframe
+```
+
+# Test source
+
+```ts
+  1  | import { test , expect } from "../fixtures/testFixtures";
+  2  | import { CreateContactPage } from "../pages/CreateContactPage";
+  3  | import { getUniqueName } from '../utils/datautils'
+  4  | 
+  5  | test('@smoke Create Contact ', async({page, homePage})=>{
+  6  | 
+  7  |     const firstName = getUniqueName("krish_");
+  8  |     const lastname = getUniqueName("jk_");
+  9  |     const description = getUniqueName("Description_");
+  10 | 
+  11 |     await homePage.clickCreatecContact();
+  12 | 
+  13 |     const createContactPage = new CreateContactPage(page);
+  14 |     createContactPage.craeteContact(firstName, lastname, description);
+  15 |     
+> 16 |     await expect(page).toHaveURL("/viewContact/");
+     |                        ^ Error: expect(page).toHaveURL(expected) failed
+  17 | 
+  18 |     await expect(createContactPage.viewContactLabel).toBeVisible();
+  19 |     
+  20 |     
+  21 | 
+  22 | 
+  23 | 
+  24 | 
+  25 | })
+  26 | 
+```
