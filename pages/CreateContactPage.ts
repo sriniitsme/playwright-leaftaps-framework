@@ -31,7 +31,8 @@ export class CreateContactPage extends BasePage {
         // ✅ Wait for button to be fully ready
         await expect(this.createContactButton).toBeVisible();
         await expect(this.createContactButton).toBeEnabled();
-
+        
+        // Scroll to view
         await this.createContactButton.scrollIntoViewIfNeeded();
 
         await this.createContactButton.click();
