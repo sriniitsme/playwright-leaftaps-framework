@@ -11,23 +11,20 @@ type MyFixtures = {
 export const test = base.extend<MyFixtures>({
     homePage: async ({ page }, use) => {
 
-        // Navigate to app
-        console.log(CONFIG.baseUrl)
+
+        // 🔥 Always start fresh
+        await page.context().clearCookies();
+
         await page.goto(CONFIG.baseUrl);
 
-
-        // Login
         const loginPage = new LoginPage(page);
         await loginPage.login(CONFIG.username, CONFIG.password);
 
-        // Navigate to CRM/SFA
         const landingPage = new LandingPage(page);
         await landingPage.clickCrmSfa();
 
-        // Create HomePage object
         const homePage = new HomePage(page);
 
-        // Provide HomePage fixture to test
         await use(homePage);
     }
 });
