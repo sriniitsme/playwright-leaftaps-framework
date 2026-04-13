@@ -1,1 +1,0 @@
-[{"uid":"d56e50b1adc56790","name":"@regression Create Account","time":{"start":1775897804157,"stop":1775897813658,"duration":9501},"status":"passed","severity":"normal"},{"uid":"be6b0e25c5c88ab8","name":"@smoke @regression Create Lead Test","time":{"start":1775897804158,"stop":1775897814375,"duration":10217},"status":"passed","severity":"normal"}]

@@ -16,7 +16,7 @@ export class CreateContactPage extends BasePage {
         this.firstNameInput = page.locator("#firstNameField");
         this.lastNameInput = page.locator("#lastNameField");
         this.descriptionInput = page.locator("#createContactForm_description");
-        this.createContactButton = page.getByRole('button', { name: 'Create Contact' });
+        this.createContactButton = page.locator("//input[@value='Create Contact']");
         this.viewContactLabel = page.locator("//div[text()='View Contact']");
         this.deactivateAccountButton = page.locator("//a[text()='Deactivate Contact']");
     }
