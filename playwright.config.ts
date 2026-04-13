@@ -8,7 +8,7 @@ dotenv.config({
 export default defineConfig({
   retries: 2,
   fullyParallel: true,
-  workers: process.env.CI ? 2 : undefined,
+  workers: process.env.CI ? 1 : undefined,
 
   reporter: [
   ['line'],
