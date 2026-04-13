@@ -8,6 +8,7 @@ test('@smoke Create Contact ', async({page, homePage})=>{
     const lastname = getUniqueName("jk_");
     const description = getUniqueName("Description_");
 
+    //homePage fixtures
     await homePage.clickCreatecContact();
 
     const createContactPage = new CreateContactPage(page);
