@@ -20,11 +20,7 @@ export class LoginPage extends BasePage {
 
     async login(username: string, password: string) {
 
-<<<<<<< HEAD
-        console.log("Change from FEATURE branch");
-=======
-        console.log("Change from MAIN branch");
->>>>>>> main
+        console.log("Resolved: FEATURE + MAIN change");
 
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
